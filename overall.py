@@ -14,7 +14,7 @@ import matplotlib.pyplot as plt
 # ========== CONFIG ==========
 IMAGE_SIZE = (64, 64)  # resize for faster processing
 DATA_DIR = "dataset"
-LABELS = {"cat": 0, "dog": 1}
+LABELS = {"classA": 0, "classB": 1}
 
 # ============================
 
