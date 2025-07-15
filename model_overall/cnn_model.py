@@ -35,8 +35,8 @@ def train_cnn(X, y):
     print(f"CNN Test Accuracy: {test_acc * 100:.2f}%")
 
     # Plot Accuracy
-    plt.plot(history.history['accuracy'], label='train')
-    plt.plot(history.history['val_accuracy'], label='val')
-    plt.legend()
-    plt.title("CNN Accuracy Over Epochs")
-    plt.show()
+    # plt.plot(history.history['accuracy'], label='train')
+    # plt.plot(history.history['val_accuracy'], label='val')
+    # plt.legend()
+    # plt.title("CNN Accuracy Over Epochs")
+    # plt.show()

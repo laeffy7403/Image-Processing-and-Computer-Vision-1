@@ -1,7 +1,7 @@
 import time
-from model.data_loader import load_images, load_images_cnn
-from model.ml_models import train_ml_models
-from model.cnn_model import train_cnn
+from model_overall.data_loader import load_images, load_images_cnn
+from model_overall.ml_models import train_ml_models
+from model_overall.cnn_model import train_cnn
 
 
 # === CONFIG ===
