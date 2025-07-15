@@ -71,15 +71,16 @@ def train_ml_models(X, y):
     rf = RandomForestClassifier(n_estimators=100)
     rf.fit(X_train, y_train)
     rf_preds = rf.predict(X_test)
-    print("Random Forest:\n", classification_report(y_test, rf_preds))
-    print("RF Training Time:", time.time() - start)
+    print("\033[96mRandom Forest:\033[0m\n", classification_report(y_test, rf_preds))
+    print("\033[95mRF Training Time:\033[0m", time.time() - start)
 
+    print("======================================================")
     start = time.time()
     svm = SVC(kernel='linear')
     svm.fit(X_train, y_train)
     svm_preds = svm.predict(X_test)
-    print("SVM:\n", classification_report(y_test, svm_preds))
-    print("SVM Training Time:", time.time() - start)
+    print("\033[96mSVM:\033[0m\n", classification_report(y_test, svm_preds))
+    print("\033[95mSVM Training Time:\033[0m", time.time() - start)
 
 # ====================== CNN ==========================
 def build_cnn(input_shape, num_classes):
@@ -99,7 +100,7 @@ def build_cnn(input_shape, num_classes):
     return model
 
 def train_cnn(X, y):
-    print("\nTraining CNN model...")
+    print("\n\033[96mTraining CNN model...\033[0m")
     X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
     y_train_cat = to_categorical(y_train)
@@ -109,17 +110,17 @@ def train_cnn(X, y):
 
     start = time.time()
     history = model.fit(X_train, y_train_cat, epochs=10, batch_size=32, validation_split=0.1, verbose=1)
-    print("CNN Training Time:", time.time() - start)
+    print("\033[95mCNN Training Time:\033[0m", time.time() - start)
 
     test_loss, test_acc = model.evaluate(X_test, y_test_cat)
     print(f"Test Accuracy: {test_acc * 100:.2f}%")
 
     # Optional: plot training loss/accuracy
-    plt.plot(history.history['accuracy'], label='train')
-    plt.plot(history.history['val_accuracy'], label='val')
-    plt.legend()
-    plt.title("CNN Accuracy Over Epochs")
-    plt.show()
+    # plt.plot(history.history['accuracy'], label='train')
+    # plt.plot(history.history['val_accuracy'], label='val')
+    # plt.legend()
+    # plt.title("CNN Accuracy Over Epochs")
+    # plt.show()
 
 # ==================== MAIN ============================
 if __name__ == "__main__":
@@ -133,4 +134,4 @@ if __name__ == "__main__":
     X_cnn, y_cnn = load_images_cnn(DATA_DIR, LABELS)
     train_cnn(X_cnn, y_cnn)
 
-    print(f"\nTotal pipeline completed in {time.time() - start_all:.2f} seconds.")
+    print(f"\n\033[92mTotal pipeline completed in {time.time() - start_all:.2f} seconds.\033[0m")
